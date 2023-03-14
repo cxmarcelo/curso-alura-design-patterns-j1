@@ -10,12 +10,15 @@ public class DiscountByPrice extends Discount {
 		super(next);
 	}
 
-	public BigDecimal calculate(Budget budget) {
-		if(budget.getValue().compareTo(new BigDecimal(500)) > 0) {
-			return budget.getValue().multiply(new BigDecimal("0.1"));
-		}
-		
-		return next.calculate(budget);
+	@Override
+	public BigDecimal applyDiscount(Budget budget) {
+		return budget.getValue().multiply(new BigDecimal("0.1"));
 	}
-	
+
+	@Override
+	public boolean canApplyDiscount(Budget budget) {
+		return budget.getValue().compareTo(new BigDecimal(500)) > 0;
+	}
+
+
 }
