@@ -3,8 +3,8 @@ package br.com.mcb.curso.cursoAluraDesignPatternsJ1.main;
 import java.math.BigDecimal;
 
 import br.com.mcb.curso.cursoAluraDesignPatternsJ1.budget.Budget;
+import br.com.mcb.curso.cursoAluraDesignPatternsJ1.tax.ICMS;
 import br.com.mcb.curso.cursoAluraDesignPatternsJ1.tax.TaxCalculator;
-import br.com.mcb.curso.cursoAluraDesignPatternsJ1.tax.TaxType;
 
 public class TestBudget {
 
@@ -12,7 +12,7 @@ public class TestBudget {
 		Budget budget = new Budget(new BigDecimal(100));
 		TaxCalculator taxCalculator = new TaxCalculator();
 		
-		BigDecimal tax = taxCalculator.calculate(budget, TaxType.ICMS);
+		BigDecimal tax = taxCalculator.calculate(budget, new ICMS());
 		System.out.println("tax: " + tax);
 	}
 

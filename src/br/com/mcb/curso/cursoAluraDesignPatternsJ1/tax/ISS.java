@@ -4,10 +4,9 @@ import java.math.BigDecimal;
 
 import br.com.mcb.curso.cursoAluraDesignPatternsJ1.budget.Budget;
 
-public class TaxCalculator {
+public class ISS implements Tax {
 
-	public BigDecimal calculate(Budget budget, Tax tax) {
-		return tax.calculate(budget);
+	public BigDecimal calculate(Budget budget) {
+		return budget.getValue().multiply(new BigDecimal("0.06"));
 	}
-	
 }
